@@ -20,7 +20,9 @@ export default function About() {
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="rounded-2xl border border-zinc-800 bg-zinc-900/20 p-6"
+          whileHover={{ y: -4 }}
+          transition={{ type: "spring", stiffness: 250, damping: 20 }}
+          className="rounded-2xl border border-zinc-800 bg-zinc-900/20 p-6 hover:bg-zinc-900/30 transition"
         >
           <p className="text-zinc-200/90">{profile.tagline}</p>
           <p className="mt-4 text-sm text-zinc-400">
@@ -36,12 +38,14 @@ export default function About() {
           className="space-y-3"
         >
           {profile.aboutBullets.map((b) => (
-            <li
+            <motion.li
               key={b}
-              className="rounded-xl border border-zinc-800 bg-zinc-900/20 p-4 text-zinc-200/90"
+              whileHover={{ y: -3 }}
+              transition={{ type: "spring", stiffness: 250, damping: 20 }}
+              className="rounded-xl border border-zinc-800 bg-zinc-900/20 p-4 text-zinc-200/90 hover:bg-zinc-900/30 transition"
             >
               {b}
-            </li>
+            </motion.li>
           ))}
         </motion.ul>
       </div>
